@@ -5,23 +5,25 @@ classDiagram
     class Persona {
         String: nombre
         String: apellido
+        int : edad
        
     }
       class Controller{
-          +main()
+        miModelo = new Modelo();
+        miVista = new UsuarioView();
       }
-      class View {mostrarDetallesUsuario(String, String)}
+   
       class Model {
           ArrayList~Persona~: personas
-          +Persona(String, String)
+          +Persona(String apellido, String apellido, int edad)
          
       }
       
-     class UsuarioIU { mostrarVentana() }
+     class UsuarioView { crearVentana() }
+     class UsuarioView {mostrarDetallesUsuario(String nombre, String apellido, int edad)}
     Controller "1" *-- "1" Model : association
-    Controller "1" *-- "1" View : association
     Model "1" *-- "1..n" Persona : association
-    View "1" *-- "1" UsuarioIU : association
+    Controller "1" *-- "1" UsuarioView : association
     
       
 ```
