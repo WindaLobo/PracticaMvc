@@ -5,15 +5,17 @@ classDiagram
     class Persona {
         String: nombre
         String: apellido
+        int : edad
        
     }
       class Controller{
-          +main()
+        miModelo = new Modelo();
+        miVista = new View();
       }
-      class View {mostrarDetallesUsuario(String, String)}
+      class View {mostrarDetallesUsuario(String nombre, String apellido, int edad)}
       class Model {
           ArrayList~Persona~: personas
-          +Persona(String, String)
+          +Persona(String apellido, String apellido, int edad)
          
       }
       
