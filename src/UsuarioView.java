@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class UsuarioView {
     static Controller miControlador;
@@ -13,6 +15,7 @@ public class UsuarioView {
 
     public UsuarioView() {
         miControlador = new Controller();
+
         crearUsuarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -20,7 +23,17 @@ public class UsuarioView {
                 String nombre = textField1.getText();
                 String apellido = textField2.getText();
                 String edad = textField3.getText();
-                textArea1.setText("Nombre:" + nombre + "\nApellido: " + apellido + "\nEdad: " + edad);
+                textArea1.append("Nombre:" + nombre + "\nApellido: " + apellido + "\nEdad: " + edad +"\n\n" );
+
+            }
+        });
+
+        crearUsuarioButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textField1.setText("");
+                textField2.setText("");
+                textField3.setText("");
 
             }
         });
@@ -35,7 +48,7 @@ public class UsuarioView {
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.pack();
         jframe.setVisible(true);
-        jframe.setBounds(700, 300, 400, 200);
+        jframe.setBounds(700, 300, 400, 400);
         return form;
     }
 
