@@ -8,8 +8,8 @@ public class Controller {
         miVista = new View();
     }
 
-    public void cerarPersona(String nombre, String apellido) {
-        Persona persona = miModelo.cerarPersona(nombre, apellido);
+    public void cerarPersona(String nombre, String apellido,int edad) {
+        Persona persona = miModelo.cerarPersona(nombre, apellido,edad);
         if (persona != null)
             miVista.mostrarDetallesUsuario(nombre, apellido);
     }
